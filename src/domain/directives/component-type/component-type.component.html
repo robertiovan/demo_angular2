@@ -1,0 +1,9 @@
+<div>Component value from outside: {{varFromOutisde}}</div>
+
+<button (click)="pushValueOutside('value from inside component')">Push value outside</button>
+
+<input #refInput type="text">
+<div #refDiv></div>
+
+<ng-content select="[byAttr]"></ng-content>
+<ng-content></ng-content>

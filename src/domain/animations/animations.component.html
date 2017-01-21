@@ -1,0 +1,12 @@
+<div>
+    <h1>Animation demo with transitions and states</h1>
+    <div
+        [@signal]="signal"
+        class="traffic-light"
+        *ngIf="isHere">      
+    </div>
+    <button (click)="onGoClick()">Go state</button>
+    <button (click)="onStopClick()">Stop state</button>
+    <hr>
+    <button (click)="onToggleClick()">Toggle</button>
+</div>

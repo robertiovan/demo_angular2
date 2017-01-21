@@ -1,0 +1,47 @@
+<div>
+    <h1>Form validation demo</h1>
+
+    <form 
+        #formRef="ngForm" 
+        (ngSubmit)="onSubmit(formRef.value)">
+        <fieldset ngModelGroup="login">
+            <input 
+                #usernameRef="ngModel"
+                name="username"
+                [(ngModel)]="username"
+                type="text"        
+                required
+                minlength="3">    
+            <div *ngIf="usernameRef.errors?.required">This field is required</div>
+            <div *ngIf="usernameRef.errors?.minlength">This field must be longer than {{usernameRef.errors?.minlength.requiredLength}} characters. You only typed {{usernameRef.errors?.minlength.actualLength}}</div>
+            
+            <div *ngFor="let location of locations">
+                <input [id]="location" name="location" ngModel type="radio" [value]="location">
+                <label [attr.for]="location">{{location}}</label>
+            </div>
+
+            <div>
+                <select name="location" [ngModel]="locations[0]">
+                    <option *ngFor="let location of locations" [value]="location">
+                        {{location}}
+                    </option>
+                </select>   
+            </div>
+
+
+            <hr>
+            Pristine: {{usernameRef.pristine}}
+            <hr>
+            Dirty: {{usernameRef.dirty}}
+            <hr>
+            Untouched: {{usernameRef.untouched}}
+            <hr>
+            Touched: {{usernameRef.touched}}        
+            <hr>
+                
+            <input type="password" ngModel name="password">
+        </fieldset>
+        <button type="submit">Submit</button>
+    </form> 
+    {{formRef.value | json}} 
+</div>  

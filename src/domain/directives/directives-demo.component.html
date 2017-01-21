@@ -1,0 +1,48 @@
+<h1>Demo directives (components, attribute, structural)</h1>
+<br>
+
+<h3>Attribute directive</h3>
+<div attributeTypeDirective='red' highlightColor="yellow">Test directive with hover</div>
+
+<hr>
+<h3>Componenet with template</h3>
+<my-template-component></my-template-component>
+
+<h3>Component with template and context</h3>
+<my-template-outlet-component></my-template-outlet-component>
+
+<br>
+<hr>
+<br>
+
+<h3>Structural directive </h3>
+<div *mystructuraldirective="let message from messagesForStructural">Message with template: {{message}}</div>
+{{messagesForStructural}}
+
+<br>
+<hr>
+<br>
+
+<h3>Pipe demo</h3>
+<div>Normal power: <input [(ngModel)]="power"></div>
+<div>Boost factor: <input [(ngModel)]="factor"></div>
+<p>
+    Super Hero Power: {{power | exponentialStrength: factor}}
+</p>
+
+<br>
+<hr>
+<br>
+
+<h2>Component parameters passed in and out</h2>
+<div>
+    <div>Value to pass in: {{inserVarIn}}</div>
+    <div>Value from inside component: {{retrivedVar}}</div>
+<div>
+<br>
+<my-component-type [varIn]='inserVarIn' (varOut)='getVarOut($event)'>
+    Transcluded content
+    <h3 byAttr> -- from template --</h3>
+</my-component-type>
+
+

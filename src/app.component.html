@@ -1,0 +1,32 @@
+
+<h1>Hello {{name}}</h1>
+
+Navigation:
+<nav>
+    <a routerLink="films" routerLinkActive="active">Factory (config)</a>
+
+    <a routerLink="cities"  routerLinkActive="active">URL params</a>
+
+    <a routerLinkActive="active" [routerLink]="['cities/out', {outlets: {'out1Name': ['outPath1'], 'out2Name': ['outPath2']}}]">Outlets</a>
+
+    <a routerLink="heroes"  routerLinkActive="active">Empty component</a>
+
+    <a routerLink="google-maps"  routerLinkActive="active">Google maps</a>
+
+    <a routerLink="admin"  routerLinkActive="active">Route guards</a>
+
+    <a routerLink="forms-demo"  routerLinkActive="active">Forms </a>
+
+    <a routerLink="directives-demo"  routerLinkActive="active">Directives</a>
+
+    <a routerLink="animations-demo"  routerLinkActive="active">Animations</a>
+
+    <a routerLink="http-demo"  routerLinkActive="active">Http with observables</a>
+
+</nav>
+
+<br>
+<hr>
+<br>
+
+<router-outlet></router-outlet>
